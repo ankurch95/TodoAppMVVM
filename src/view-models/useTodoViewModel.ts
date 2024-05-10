@@ -1,6 +1,5 @@
 import {useSelector, useDispatch} from 'react-redux';
 import {TodoAction} from '../store/todoSlice';
-
 import {StoreType, TodoStateType} from '../types/stateTypes';
 
 const useTodoViewModel = () => {

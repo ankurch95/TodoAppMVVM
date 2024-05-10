@@ -28,7 +28,7 @@ const NewTodoScreen = () => {
             onChangeText={(text: string) => onChangeText(text)}
           />
           <Button
-            backgroundColor='#0476D0'
+            backgroundColor='#004000'
             title='Create'
             onPress={() => onClickCreate()} />
         </View>

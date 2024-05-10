@@ -20,7 +20,7 @@ const Button = (props: ButtonProps) => {
 
 const styles = StyleSheet.create({
     btn: {
-        padding: 8,
+        paddingVertical: 15,
         borderRadius: 8,
         backgroundColor: '#0476D0',
         alignItems: 'center',

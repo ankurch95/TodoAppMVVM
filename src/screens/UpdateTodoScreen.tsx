@@ -34,15 +34,20 @@ const UpdateTodoScreen = (props: UpdateTodoScreenProps) => {
             onChangeText={(text: string) => onChangeText(text)}
           />
 
-          <Button
-            backgroundColor='#0476D0'
-            title='Update'
-            onPress={() => onClickUpdate()} />
-
-          <Button
-            backgroundColor='#D00410'
-            title='Delete'
-            onPress={() => onClickDelete()} />
+          <View style={{ flexDirection: 'row' }}>
+            <View style={{ flex: 1,marginRight:5 }}>
+              <Button
+                backgroundColor='#004000'
+                title='Update'
+                onPress={() => onClickUpdate()} />
+            </View>
+            <View style={{ flex: 1,marginLeft:5 }}>
+              <Button
+                backgroundColor='#D00410'
+                title='Delete'
+                onPress={() => onClickDelete()} />
+            </View>
+          </View>
         </View>
       </View>
     </SafeAreaView>
@@ -52,11 +57,11 @@ const UpdateTodoScreen = (props: UpdateTodoScreenProps) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff'
+    backgroundColor: '#FFFFFF'
   },
   background: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#FFFFFF',
     paddingVertical: 8,
     paddingHorizontal: 8,
   },

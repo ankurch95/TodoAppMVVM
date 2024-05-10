@@ -39,11 +39,11 @@ const HomeTodoScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff'
+    backgroundColor: '#FFFFFF'
   },
   background: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#FFFFFF',
     paddingVertical: 8,
     paddingHorizontal: 8,
   },
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '400',
     paddingHorizontal: 8,
-    color:'#fff'
+    color:'#FFFFFF'
   },
   todoList: {
     marginVertical: 24,
