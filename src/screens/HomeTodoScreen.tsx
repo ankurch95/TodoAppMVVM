@@ -24,7 +24,7 @@ const HomeTodoScreen = () => {
           </Pressable>
         </View>
         <View style={styles.todoList}>
-          {todos.length === 0 && <View style={styles.emptyContainer}><Text style={{fontSize: 16}}>No Todo</Text></View>}
+          {todos.length === 0 && <View style={styles.emptyContainer}><Text style={{fontSize: 16,justifyContent:'center',alignItems:'center'}}>No Todo</Text></View>}
           <FlatList
             keyExtractor={item => item.id}
             data={todos}
@@ -39,11 +39,11 @@ const HomeTodoScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFFFFF'
+    backgroundColor: '#fff'
   },
   background: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#fff',
     paddingVertical: 8,
     paddingHorizontal: 8,
   },
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '400',
     paddingHorizontal: 8,
-    color:'#FFFFFF'
+    color:'#fff'
   },
   todoList: {
     marginVertical: 24,

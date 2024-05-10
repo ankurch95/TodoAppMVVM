@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, StyleSheet, TouchableOpacity} from 'react-native';
+import { Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 interface TodoItemProps {
   onPress: () => void;
@@ -7,10 +7,15 @@ interface TodoItemProps {
 }
 
 const TodoItem = (props: TodoItemProps) => {
-  const {onPress, title} = props;
+  const { onPress, title } = props;
   return (
     <TouchableOpacity style={styles.todo} onPress={onPress}>
-      <Text style={styles.title}>{title}</Text>
+      <Text
+        style={styles.title}
+        numberOfLines={2}
+      >
+        {title}
+      </Text>
     </TouchableOpacity>
   );
 };

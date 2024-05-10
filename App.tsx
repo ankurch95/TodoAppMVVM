@@ -5,7 +5,7 @@ import AppContainer from './src/navigation';
 
 export default function App() {
   return (
-    <Provider store={ store}>
+    <Provider store={store}>
       <AppContainer />
     </Provider>
   );
