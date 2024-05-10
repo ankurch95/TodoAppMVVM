@@ -1,4 +1,3 @@
-import {nanoid} from '@reduxjs/toolkit';
 import {TodoStateType} from '../types/stateTypes';
 
 const TodoStore: TodoStateType = {

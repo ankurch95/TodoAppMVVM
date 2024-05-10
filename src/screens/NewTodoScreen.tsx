@@ -1,15 +1,13 @@
 import React from 'react';
 import {
   View,
-  Text,
   TextInput,
   StyleSheet,
-  TouchableOpacity,
 } from 'react-native';
 
 import useNewTodoController from '../view-controllers/useNewTodoController';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Header } from '../components';
+import { Button, Header } from '../components';
 const NewTodoScreen = () => {
   const { todoText, onChangeText, onClickCreate, onGoBack } = useNewTodoController();
 
@@ -24,16 +22,15 @@ const NewTodoScreen = () => {
           <TextInput
             value={todoText}
             style={styles.input}
+            multiline={true}
+            numberOfLines={5}
             placeholder="Enter text ..."
             onChangeText={(text: string) => onChangeText(text)}
           />
-          <TouchableOpacity
-            style={styles.btn}
-            onPress={() => {
-              onClickCreate();
-            }}>
-            <Text style={styles.btnText}>Create</Text>
-          </TouchableOpacity>
+          <Button
+            backgroundColor='#0476D0'
+            title='Create'
+            onPress={() => onClickCreate()} />
         </View>
       </View>
     </SafeAreaView>
@@ -59,18 +56,6 @@ const styles = StyleSheet.create({
   headingView: {
     flexDirection: 'row',
     alignItems: 'center'
-  },
-  btn: {
-    padding: 8,
-    borderRadius: 8,
-    backgroundColor: '#0476D0',
-    alignItems: 'center',
-  },
-  btnText: {
-    fontSize: 16,
-    fontWeight: '400',
-    paddingHorizontal: 8,
-    color: '#fff'
   },
   inputView: {
     marginVertical: 24,

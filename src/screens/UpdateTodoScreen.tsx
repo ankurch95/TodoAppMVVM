@@ -1,15 +1,13 @@
 import React from 'react';
 import {
   View,
-  Text,
   TextInput,
   StyleSheet,
-  TouchableOpacity,
 } from 'react-native';
 import useUpdateTodoController from '../view-controllers/useUpdateTodoController';
 import { TodoItemType } from '../types/genericTypes';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Header } from '../components';
+import { Button, Header } from '../components';
 
 interface UpdateTodoScreenProps {
   route: { params: { todoItem: TodoItemType } };
@@ -31,22 +29,20 @@ const UpdateTodoScreen = (props: UpdateTodoScreenProps) => {
           <TextInput
             value={todoText}
             style={styles.input}
+            multiline={true}
+            numberOfLines={5}
             onChangeText={(text: string) => onChangeText(text)}
           />
-          <TouchableOpacity
-            style={styles.btn}
-            onPress={() => {
-              onClickUpdate();
-            }}>
-            <Text style={styles.btnText}>Update</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={{ ...styles.btn, backgroundColor: '#D00410' }}
-            onPress={() => {
-              onClickDelete();
-            }}>
-            <Text style={styles.btnText}>Delete</Text>
-          </TouchableOpacity>
+
+          <Button
+            backgroundColor='#0476D0'
+            title='Update'
+            onPress={() => onClickUpdate()} />
+
+          <Button
+            backgroundColor='#D00410'
+            title='Delete'
+            onPress={() => onClickDelete()} />
         </View>
       </View>
     </SafeAreaView>
@@ -72,19 +68,6 @@ const styles = StyleSheet.create({
   headingView: {
     flexDirection: 'row',
     alignItems: 'center',
-  },
-  btn: {
-    padding: 8,
-    borderRadius: 8,
-    backgroundColor: '#0476D0',
-    alignItems: 'center',
-    marginVertical: 8,
-  },
-  btnText: {
-    fontSize: 16,
-    fontWeight: '400',
-    paddingHorizontal: 8,
-    color: '#fff'
   },
   inputView: {
     marginVertical: 24,
