@@ -9,20 +9,17 @@ import {
 
 import useNewTodoController from '../view-controllers/useNewTodoController';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { Header } from '../components';
 const NewTodoScreen = () => {
-  const { todoText, onChangeText, onClickCreate,onGoBack } = useNewTodoController();
+  const { todoText, onChangeText, onClickCreate, onGoBack } = useNewTodoController();
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.background}>
-        <View style={styles.headingView}>
-          <Text
-            style={{ ...styles.heading, fontSize: 15 }}
-            onPress={() => {
-              onGoBack();
-            }}>Back</Text>
-          <Text style={styles.heading}>Todo</Text>
-        </View>
+        <Header
+          onPress={() => onGoBack()}
+          title='New TODO' />
+
         <View style={styles.inputView}>
           <TextInput
             value={todoText}
@@ -73,7 +70,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '400',
     paddingHorizontal: 8,
-    color:'#fff'
+    color: '#fff'
   },
   inputView: {
     marginVertical: 24,

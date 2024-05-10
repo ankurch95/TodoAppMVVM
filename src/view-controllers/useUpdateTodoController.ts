@@ -7,7 +7,6 @@ const useUpdateTodoController = (todo: TodoItemType) => {
   const {
     updateTodo,
     updatingTodo,
-
     deleteTodo,
   } = useTodoViewModel();
 
@@ -22,8 +21,10 @@ const useUpdateTodoController = (todo: TodoItemType) => {
       id: todo.id,
       title: todoText,
     };
-    updateTodo(payload);
-    navigation.goBack();
+    if (todoText!='') {
+      updateTodo(payload);
+      navigation.goBack();
+    }
   };
 
   const onClickDelete = () => {

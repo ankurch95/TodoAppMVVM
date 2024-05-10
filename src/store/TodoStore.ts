@@ -3,16 +3,7 @@ import {TodoStateType} from '../types/stateTypes';
 
 const TodoStore: TodoStateType = {
   fetchingTodos: false,
-  todos: [
-    {
-      id: nanoid(),
-      title: 'I have to do homework.',
-    },
-    {
-      id: nanoid(),
-      title: 'I have to complete project.',
-    },
-  ],
+  todos:  [],
 
   creatingTodo: false,
   createTodoSuccess: false,

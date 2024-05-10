@@ -7,52 +7,48 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import useUpdateTodoController from '../view-controllers/useUpdateTodoController';
-import {TodoItemType} from '../types/genericTypes';
+import { TodoItemType } from '../types/genericTypes';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { Header } from '../components';
 
 interface UpdateTodoScreenProps {
-  route: {params: {todoItem: TodoItemType}};
+  route: { params: { todoItem: TodoItemType } };
 }
 
 const UpdateTodoScreen = (props: UpdateTodoScreenProps) => {
-  const {todoItem} = props.route.params;
+  const { todoItem } = props.route.params;
 
-  const {todoText, onChangeText, onClickDelete, onClickUpdate,onGoBack} =
+  const { todoText, onChangeText, onClickDelete, onClickUpdate, onGoBack } =
     useUpdateTodoController(todoItem);
 
   return (
     <SafeAreaView style={styles.container}>
-    <View style={styles.background}>
-      <View style={styles.headingView}>
-      <Text
-            style={{ ...styles.heading, fontSize: 15 }}
+      <View style={styles.background}>
+        <Header
+          onPress={() => onGoBack()}
+          title='Update TODO' />
+        <View style={styles.inputView}>
+          <TextInput
+            value={todoText}
+            style={styles.input}
+            onChangeText={(text: string) => onChangeText(text)}
+          />
+          <TouchableOpacity
+            style={styles.btn}
             onPress={() => {
-              onGoBack();
-            }}>Back</Text>
-        <Text style={styles.heading}>Todo</Text>
+              onClickUpdate();
+            }}>
+            <Text style={styles.btnText}>Update</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{ ...styles.btn, backgroundColor: '#D00410' }}
+            onPress={() => {
+              onClickDelete();
+            }}>
+            <Text style={styles.btnText}>Delete</Text>
+          </TouchableOpacity>
+        </View>
       </View>
-      <View style={styles.inputView}>
-        <TextInput
-          value={todoText}
-          style={styles.input}
-          onChangeText={(text: string) => onChangeText(text)}
-        />
-        <TouchableOpacity
-          style={styles.btn}
-          onPress={() => {
-            onClickUpdate();
-          }}>
-          <Text style={styles.btnText}>Update</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={{...styles.btn,backgroundColor:'#D00410'}}
-          onPress={() => {
-            onClickDelete();
-          }}>
-          <Text style={styles.btnText}>Delete</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
     </SafeAreaView>
   );
 };
@@ -88,7 +84,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '400',
     paddingHorizontal: 8,
-    color:'#fff'
+    color: '#fff'
   },
   inputView: {
     marginVertical: 24,

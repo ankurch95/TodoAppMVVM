@@ -24,6 +24,7 @@ const HomeTodoScreen = () => {
           </Pressable>
         </View>
         <View style={styles.todoList}>
+          {todos.length === 0 && <View style={styles.emptyContainer}><Text style={{fontSize: 16}}>No Todo</Text></View>}
           <FlatList
             keyExtractor={item => item.id}
             data={todos}
@@ -68,6 +69,11 @@ const styles = StyleSheet.create({
   todoList: {
     marginVertical: 24,
   },
+  emptyContainer:{
+    justifyContent:'center',
+    alignItems:'center',
+    height:'100%'
+  }
 });
 
 export default HomeTodoScreen;
